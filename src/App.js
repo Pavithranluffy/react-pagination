@@ -25,6 +25,16 @@ export default function App() {
       console.error("Error fetching products:", error);
     }
   };
+  const gotoNextPage = () => {
+    if (currentPage < totalnoofpages - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+  const gotopreviousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   const handlePagechange = (page) => {
     setCurrentPage(page);
@@ -45,7 +55,7 @@ export default function App() {
         <span
           className="pagination-number"
           onClick={() => {
-            setCurrentPage((prevpage) => prevpage - 1);
+            gotopreviousPage();
           }}
         >
           ←
@@ -73,7 +83,7 @@ export default function App() {
         <span
           className="pagination-number"
           onClick={() => {
-            setCurrentPage((prevpage) => prevpage + 1);
+            gotoNextPage();
           }}
         >
           →
